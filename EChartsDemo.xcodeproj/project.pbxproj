@@ -12,9 +12,12 @@
 		5C91A0091DB863C500615D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C91A0071DB863C500615D14 /* Main.storyboard */; };
 		5C91A00B1DB863C500615D14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C91A00A1DB863C500615D14 /* Assets.xcassets */; };
 		5C91A00E1DB863C500615D14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C91A00C1DB863C500615D14 /* LaunchScreen.storyboard */; };
+		5CB0EC0F1DBF0A8200BC1353 /* ECharts in Resources */ = {isa = PBXBuildFile; fileRef = 5CB0EC0E1DBF0A8200BC1353 /* ECharts */; };
+		CB373895C4441700CDF6BBBC /* Pods_EChartsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 158492E17BA70A5C0CAE4762 /* Pods_EChartsDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		158492E17BA70A5C0CAE4762 /* Pods_EChartsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EChartsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C91A0001DB863C500615D14 /* EChartsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EChartsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C91A0031DB863C500615D14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5C91A0051DB863C500615D14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,10 @@
 		5C91A00A1DB863C500615D14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C91A00D1DB863C500615D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C91A00F1DB863C500615D14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CB0EC061DBEEF3700BC1353 /* EChartsDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EChartsDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		5CB0EC0E1DBF0A8200BC1353 /* ECharts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ECharts; sourceTree = "<group>"; };
+		A276C7324D6E53ECFA88B1F8 /* Pods-EChartsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EChartsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EChartsDemo/Pods-EChartsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FB36A85CC55F9EF02F04460A /* Pods-EChartsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EChartsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-EChartsDemo/Pods-EChartsDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB373895C4441700CDF6BBBC /* Pods_EChartsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +48,8 @@
 			children = (
 				5C91A0021DB863C500615D14 /* EChartsDemo */,
 				5C91A0011DB863C500615D14 /* Products */,
+				7E0D1770B2194A5C04976ADB /* Pods */,
+				C772479CD5A51F6E6D581E4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +64,33 @@
 		5C91A0021DB863C500615D14 /* EChartsDemo */ = {
 			isa = PBXGroup;
 			children = (
+				5CB0EC0E1DBF0A8200BC1353 /* ECharts */,
 				5C91A0031DB863C500615D14 /* AppDelegate.swift */,
 				5C91A0051DB863C500615D14 /* ViewController.swift */,
 				5C91A0071DB863C500615D14 /* Main.storyboard */,
 				5C91A00A1DB863C500615D14 /* Assets.xcassets */,
 				5C91A00C1DB863C500615D14 /* LaunchScreen.storyboard */,
 				5C91A00F1DB863C500615D14 /* Info.plist */,
+				5CB0EC061DBEEF3700BC1353 /* EChartsDemo-Bridging-Header.h */,
 			);
 			path = EChartsDemo;
+			sourceTree = "<group>";
+		};
+		7E0D1770B2194A5C04976ADB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A276C7324D6E53ECFA88B1F8 /* Pods-EChartsDemo.debug.xcconfig */,
+				FB36A85CC55F9EF02F04460A /* Pods-EChartsDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C772479CD5A51F6E6D581E4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				158492E17BA70A5C0CAE4762 /* Pods_EChartsDemo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +100,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C91A0121DB863C500615D14 /* Build configuration list for PBXNativeTarget "EChartsDemo" */;
 			buildPhases = (
+				1A5756CAB162EFADA556D1EE /* [CP] Check Pods Manifest.lock */,
 				5C919FFC1DB863C500615D14 /* Sources */,
 				5C919FFD1DB863C500615D14 /* Frameworks */,
 				5C919FFE1DB863C500615D14 /* Resources */,
+				E1020A78B967713C69313455 /* [CP] Embed Pods Frameworks */,
+				4017E1E142E21D3773523D05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +128,7 @@
 				TargetAttributes = {
 					5C919FFF1DB863C500615D14 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -124,12 +157,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C91A00E1DB863C500615D14 /* LaunchScreen.storyboard in Resources */,
+				5CB0EC0F1DBF0A8200BC1353 /* ECharts in Resources */,
 				5C91A00B1DB863C500615D14 /* Assets.xcassets in Resources */,
 				5C91A0091DB863C500615D14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A5756CAB162EFADA556D1EE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		4017E1E142E21D3773523D05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EChartsDemo/Pods-EChartsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1020A78B967713C69313455 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EChartsDemo/Pods-EChartsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5C919FFC1DB863C500615D14 /* Sources */ = {
@@ -258,24 +340,31 @@
 		};
 		5C91A0131DB863C500615D14 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A276C7324D6E53ECFA88B1F8 /* Pods-EChartsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EChartsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kFoodie.EChartsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EChartsDemo/EChartsDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		5C91A0141DB863C500615D14 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB36A85CC55F9EF02F04460A /* Pods-EChartsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = EChartsDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kFoodie.EChartsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "EChartsDemo/EChartsDemo-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -299,6 +388,7 @@
 				5C91A0141DB863C500615D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

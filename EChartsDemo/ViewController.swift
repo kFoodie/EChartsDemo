@@ -7,19 +7,45 @@
 //
 
 import UIKit
+import WebViewJavascriptBridge
 
-class ViewController: UIViewController {
+var bridge: WebViewJavascriptBridge!
 
+class ViewController: UIViewController, UIWebViewDelegate {
+
+    @IBOutlet weak var webView: UIWebView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        WebViewJavascriptBridge.enableLogging()
+        
+        bridge = WebViewJavascriptBridge(for: webView)
+        bridge.setWebViewDelegate(self)
+        bridge.callHandler("iOSCallBack", data: "")
+        
+        bridge.registerHandler("callViewLoad") { (data, callBack) in
+            
+            print("JS 给 iOS 的 data = \(data)")
+            
+            callBack!("iOS 给 JS 的 data")
+        }
+        
+        let url = Bundle.main.url(forResource: "/ECharts/index", withExtension: ".html")
+        webView.loadRequest(URLRequest(url: url!))
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func didSelectedArea() {
+        
+    }
 
 
 }
+
 

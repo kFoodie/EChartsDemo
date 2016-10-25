@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/dist/echarts-all.js"></script>
+       <!-- 新添加的jQuery -->
+       <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+       <!-- End -->
+
+	</head>
+<body>
+	<div id="main1" style="height:400px"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = echarts.init(document.getElementById('main1')); 
+        var cityMap = {
+		    "广州市": "440100",
+		};
+		
+		debugger;
+		var curIndx = 1;
+		var mapType = [];
+		var mapGeoData = echarts.util.mapData.params;
+		
+		console.log(mapGeoData)
+		mapType.push('广东');
+		for (var city in cityMap) {
+		    mapType.push(city);
+		    // 自定义扩展图表类型
+		    mapGeoData.params[city] = {
+		        getGeoJson: (function (c) {
+		            var geoJsonName = cityMap[c];
+		            return function (callback) {
+		                $.getJSON('geoJson/china-main-city/' + geoJsonName + '.json', callback);
+		            }
+		        })(city)
+		    }
+		}
+		
+		var ecConfig = echarts.config;
+		var option;
+		myChart.on('mapSelected', function (param){
+			
+		    var len = mapType.length;
+		    var mt = mapType[curIndx % len];
+
+                  
+                   
+       /**与OC交互的所有JS方法都要放在此处注册，才能调用通过JS调用OC或者让OC调用这里的JS*/
+       setupWebViewJavascriptBridge(function(bridge) {
+        /**OC调用JS代码不含参数*/
+        bridge.registerHandler('UserLogin', function() {
+                               alert('UserLogin')
+                               })
+        /**OC调用JS代码含参数*/
+        bridge.registerHandler('UserLoginInfo', function(data, responseCallback) {
+                               responseCallback({'userId': '123456', 'Names': 'ZHOUZHOUGEDEBOKE'})
+                               })
+        
+        // **********************************JS调用OC
+        bridge.callHandler('callViewLoad', {'blogURL': 'http://www.henishuo.com'}, function(responseCallback){
+                           alert(param.target)
+                           })
+        })
+
+                   
+
+		    // window.location.href = 'baidu.html?name='+param.target+'&data='+param.__echartsId+'&index='+curIndx+'&mt='+mt;
+
+		    option.series[0].mapType = mt;
+		    myChart.setOption(option, false);
+		});
+		
+		option = {
+		    dataRange: {
+		        min: 0,
+		        max: 1000,
+		        color:['orange','yellow'],
+		        text:['高','低'],           // 文本，默认为数值文本
+		        calculable : true
+		    },
+		    series : [
+		        {
+		            type: 'map',
+		            mapType: '广州市',
+		            selectedMode : 'single',
+		            itemStyle:{
+		                normal:{label:{show:true}},
+		                emphasis:{label:{show:true}}
+		            },
+		            data:[
+		            	 {name: '天河区',value: Math.round(Math.random()*1000)},
+		            	 {name: '从化市',value: Math.round(Math.random()*1000)},
+		            	 {name: '增城市',value: Math.round(Math.random()*1000)},
+		            	 {name: '花都区',value: Math.round(Math.random()*1000)},
+		            	 {name: '白云区',value: Math.round(Math.random()*1000)},
+		            	 {name: '萝岗区',value: Math.round(Math.random()*1000)},
+		            	 {name: '黄埔区',value: Math.round(Math.random()*1000)},
+		            	 {name: '越秀区',value: Math.round(Math.random()*1000)},
+		            	 {name: '荔湾区',value: Math.round(Math.random()*1000)},
+		            	 {name: '海珠区',value: Math.round(Math.random()*1000)},
+		            	 {name: '番禺区',value: Math.round(Math.random()*1000)},
+		            	 {name: '南沙区',value: Math.round(Math.random()*1000)}
+		            ]
+		        }
+		    ]
+		};
+                    
+        // 为echarts对象加载数据 
+        myChart.setOption(option); 
+        var backValue = GetQueryString("backValue");
+        
+        if(backValue!=null){//跳转
+        	index = GetQueryString("index");
+        	curIndx = index;
+        	option.series[0].mapType = backValue;
+		    option.title.subtext = backValue + ' （点击进入）';
+		    myChart.setOption(option, false);
+        }
+        
+        function GetQueryString(name){
+		    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+		    var r = decodeURIComponent(window.location.search.substr(1)).match(reg);
+		    if(r!=null)
+		    	return  unescape(r[2]);
+		    return null;
+		}
+    
+    ///////////////////// 与 iOS 交互
+    
+    /*这段代码是固定的，必须要放到js中*/
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    
+    
+               
+    </script>
+</body>
+</html>
